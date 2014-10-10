@@ -24,7 +24,7 @@ class CachedDict(object):
 
         try:
             return self._local_cache[key]
-        except KeyError:
+        except (KeyError, TypeError):
             value = self.get_default(key)
 
             if value is NoValue:
